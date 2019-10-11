@@ -8,3 +8,5 @@ https://www.youtube.com/watch?v=ARIzrNwA5HQ&t=213s
 
 MEVN Curso - Mongodb, Express, Vuejs y Nodejs, Parte 2 - Frontend con Vuejs
 https://www.youtube.com/watch?v=NQFaukftHpg
+
+Para correr el proyecto es npm run webpack
