@@ -2,8 +2,16 @@
  const router = express.Router() //es un objeto para crear rutas
  const Task = require('../models/Task')
 
+// set up rate limiter: maximum of five requests per minute
+let RateLimit = require('express-rate-limit');
+let limiter = RateLimit({
+    windowMs: 1*60*1000, // 1 minute
+    max: 5
+  });
+router.use(limiter);
 
  router.get('/tasks', async (req, res) => {
+    
      //res.send('API Tasks is goes here')
      const tasks = await Task.find();
      //console.log(tasks)
@@ -11,6 +19,9 @@
  })
 
  router.get('/tasks/:id', async (req, res) => {
+    //nuevo
+    if (isValidPath(path))
+      res.sendFile(path);
      const tasks = await Task.findById(req.params.id);
      res.json(tasks)
  })
