@@ -20,7 +20,6 @@ router.use(limiter);
 
  router.get('/tasks/:id', async (req, res) => {
     //nuevo
-    let path = req.params.path;
     if (isValidPath(path))
       res.sendFile(path);
      const tasks = await Task.findById(req.params.id);
